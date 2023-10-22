@@ -1,0 +1,3 @@
+.body.view-project > nav.main-nav { display: none; }
+.body.view-project main.project { margin-bottom: 0px; }
+.body.view-project footer { display: none; }

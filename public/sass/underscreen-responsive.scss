@@ -1,0 +1,44 @@
+/*****************************************************
+* COMMON Bootstrap 3 Media query classes
+*/
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+@media (max-width: ($screen-sm-min - 1))
+{
+	// XS - No usar preferentemente
+
+}
+
+//@media only screen and (min-width : 321px) {
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	// XS LANDSCAPE
+}
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: $screen-sm-min)
+{
+	// SM - Small
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: $screen-md-min)
+{
+	// MED - medium
+	.headline-stories {
+		.col-md-7 {
+			padding-right: 0 !important;
+		}
+		.col-md-5 {
+			padding-left: 0 !important;
+		}
+	}
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: $screen-lg-min)
+{
+	// LG - Large
+}

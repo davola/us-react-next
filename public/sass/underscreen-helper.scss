@@ -1,0 +1,177 @@
+// formulas ocultas
+@mixin wh($w,$h) {
+    width: $w;
+    height: $h;
+}
+.ti(){ text-indent: -999999em; }
+.bc($color){ background-color: $color; }
+.ts(){ text-shadow: 0px 1px 2px #000; }
+.fs($size, $per:1.20){ font-size: $size; line-height: round($size * $per); }
+.colora($color, $a:0.8){ color:rgba(red($color),green($color),blue($color),$a); }
+.rgba($color, $a:0.8){ background-color:rgba(red($color),green($color),blue($color),$a); }
+
+@mixin sprite() {
+	background-image: url('img/nos-sprite.png');
+	background-size: 500px 300px;
+	background-repeat: no-repeat;
+	//background-color: red;
+}
+@mixin spriteSquare($size, $x, $y) {
+	@include sprite;
+	width:$size; height:$size;
+	background-position: $x $y;
+}
+@mixin spriteSize($w, $h, $x, $y) {
+	@include sprite;
+	width:$w; height:$h;
+	background-position: $x $y;
+}
+
+@mixin acelerate3D() {
+	transform: translate3d(0,0,0);
+}
+.list-unstyled{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li{
+		margin: 0;
+	}
+}
+// clases helpers visibles
+@mixin inline() {
+    display: inline; 
+    & > li { display: inline; }
+}
+@mixin list-inline() {
+	li { display: inline; }
+}
+@mixin inline-block() {
+    display: inline-block; 
+    & > li { display: inline-block; }
+}
+
+@mixin figureBgCover() {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	img{
+		display: none;
+	}
+}
+
+@mixin vertical-align($top:50%) {
+    top: $top;
+    -webkit-transform: translateY(-$top);
+    -ms-transform: translateY(-$top);
+    transform: translateY(-$top);
+}
+@mixin preserve-3d() {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+// FLECHAS
+@mixin arrow-up($size: 5px, $color: #ccc) {
+    display: inline-block; width: 0;	height: 0; 
+	border-left: $size solid transparent;
+	border-right: $size solid transparent;
+	border-bottom: $size solid $color;
+}
+@mixin arrow-down($size: 5px, $color: #ccc) {
+	display: inline-block; width: 0;	height: 0; 
+	border-left: $size solid transparent;
+	border-right: $size solid transparent;
+	border-top: $size solid $color;
+}
+@mixin arrow-right($size: 5px, $color: #ccc) {
+	display: inline-block; width: 0; 	height: 0; 
+	border-top: $size solid transparent;
+	border-bottom: $size solid transparent;
+	border-left: $size solid $color;
+}
+@mixin arrow-left($size: 5px, $color: #ccc) {
+	display: inline-block; width: 0; 	height: 0; 
+	border-top: $size solid transparent;
+	border-bottom: $size solid transparent; 
+	border-right: $size solid $color; 
+}
+
+@mixin btn-cross($size:60px, $weight:8px, $color:#fff) {
+	display: inline-block;
+	width: $size;
+	height: $size;
+	position: relative;
+	//background-color: red;
+	&:after, &:before{
+		position: absolute;
+		content: ' ';
+		display: block;
+		background-color: $color;
+		height: $size;
+		width: $weight;
+		left: 50%;
+		margin-left:-$weight/2;
+	}
+	&:after{
+		transform: rotate(45deg);
+	}
+	&:before{
+		transform: rotate(-45deg);
+	}
+}
+@mixin btn-arrow($size:60px, $weight:8px, $color:#fff) {
+	display: inline-block;
+	border-right: $weight solid $color;
+	border-bottom: $weight solid $color;
+	width: $size/2; height: $size/2;
+	//background-color: red;
+	&.right{ transform: rotate(-45deg); }
+	&.left{ transform: rotate(135deg); }
+	&.up{ transform: rotate(-135deg); }
+	&.down{ transform: rotate(45deg); }
+}
+@mixin btn-bar($size:60px, $weight:8px, $color:#fff) {
+	display: block;
+	width: $size;
+	height: $weight;
+	background-color: $color;
+}
+
+// five column bootstrap
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+	position: relative;
+	min-height: 1px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.col-xs-5ths {
+	width: 20%;
+	float: left;
+}
+
+@media (min-width: 768px) {
+	.col-sm-5ths {
+		width: 20%;
+		float: left;
+	}
+}
+
+@media (min-width: 992px) {
+	.col-md-5ths {
+		width: 20%;
+		float: left;
+	}
+}
+
+@media (min-width: 1200px) {
+	.col-lg-5ths {
+		width: 20%;
+		float: left;
+	}
+}
